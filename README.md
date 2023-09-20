@@ -4,6 +4,7 @@
 #### 静态：
 1. flowdroid
 https://github.com/secure-software-engineering/FlowDroid
+
 使用方法：
 ```
 java -jar soot-infoflow-cmd/target/soot-infoflow-cmd-jar-with-dependencies.jar \
@@ -17,15 +18,17 @@ https://github.com/secure-software-engineering/FlowDroid/blob/develop/soot-infof
 
 2. appshark： 字节跳动的工具，比flowDroid看起来更好用一些
 和FlowDroid用起来差不多
+
 使用指南：https://github.com/bytedance/appshark/blob/main/doc/zh/how_to_find_compliance_problem_use_appshark.md
 
 
-3. Jeb, JD-GUI：JAVA/Android的反编译查看源码的工具
+4. Jeb, JD-GUI：JAVA/Android的反编译查看源码的工具
+
 Jeb: https://www.pnfsoftware.com/
 JD-GUI: https://java-decompiler.github.io/
 使用方法：把APK拖入这两个工具即可
 
-4. androguard: https://github.com/WuFengXue/android-reverse
+6. androguard: https://github.com/WuFengXue/android-reverse
 
 像是一个Android各种逆向工具的collection，提供了Python API用于查看apk的各种信息
 例如
@@ -34,6 +37,7 @@ JD-GUI: https://java-decompiler.github.io/
 
 
 5. 其它常用的Android分析工具
+   
 ADB
 ```
 adb shell: ssh连上手机、模拟器
@@ -46,15 +50,18 @@ adb pull: 从手机、模拟器 的文件系统中下载一个文件
 #### 动态测试：
 1. Appium: 一款UI测试工具
 https://appium.io/docs/en/2.1/
+
 可以参考这个教程安装和测试：https://zhuanlan.zhihu.com/p/144737398
 
-2. uiautomator2:  一款UI测试工具
+3. uiautomator2:  一款UI测试工具
 https://github.com/openatx/uiautomator2
+
 同Appium, 但比Appium更简单易用，官方（Git仓库）中的教程简单易读
 可以参考这个教程使用：https://blog.csdn.net/d1240673769/article/details/113809889
 
 
-3. Frida： 好用的插桩软件
+4. Frida： 好用的插桩软件
+   
 Frida的安装比较复杂，总的来说，电脑上需要先安装一个frida-tools， 然后再通过adb push传一个frida server到手机上，然后通过adb shell在手机中运行这个server。 server可以接收来自电脑上frida-tools的命令，做后续的操作
 
 官网的教程省略了很多重要信息
