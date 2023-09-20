@@ -3,42 +3,42 @@
 
 #### 静态：
 1. flowdroid
-https://github.com/secure-software-engineering/FlowDroid
 
-使用方法：
+    https://github.com/secure-software-engineering/FlowDroid
+
+   使用方法：
 ```
 java -jar soot-infoflow-cmd/target/soot-infoflow-cmd-jar-with-dependencies.jar \
     -a <APK File> \
     -p <Android JAR folder> \
     -s <SourcesSinks file>
 ```
-在SourcesSinks file中声明source和sink即可，具体写法可以参考：
-https://github.com/secure-software-engineering/FlowDroid/blob/develop/soot-infoflow-android/SourcesAndSinks.txt
+   在SourcesSinks file中声明source和sink即可，具体写法可以参考： https://github.com/secure-software-engineering/FlowDroid/blob/develop/soot-infoflow-android/SourcesAndSinks.txt
   
 
 2. appshark： 字节跳动的工具，比flowDroid看起来更好用一些
-和FlowDroid用起来差不多
 
-使用指南：https://github.com/bytedance/appshark/blob/main/doc/zh/how_to_find_compliance_problem_use_appshark.md
+   和FlowDroid用起来差不多
+
+   使用指南：https://github.com/bytedance/appshark/blob/main/doc/zh/how_to_find_compliance_problem_use_appshark.md
 
 
 4. Jeb, JD-GUI：JAVA/Android的反编译查看源码的工具
 
-Jeb: https://www.pnfsoftware.com/
-JD-GUI: https://java-decompiler.github.io/
-使用方法：把APK拖入这两个工具即可
+   Jeb: https://www.pnfsoftware.com/
+   JD-GUI: https://java-decompiler.github.io/
+   使用方法：把APK拖入这两个工具即可
 
 6. androguard: https://github.com/WuFengXue/android-reverse
 
-像是一个Android各种逆向工具的collection，提供了Python API用于查看apk的各种信息
-例如
-``a.get_permissions()``
-查看APP所用的全部权限
+   像是一个Android各种逆向工具的collection，提供了Python API用于查看apk的各种信息
+   例如
+   使用``a.get_permissions()``查看APP所用的全部权限
 
 
 5. 其它常用的Android分析工具
    
-ADB
+   ADB
 ```
 adb shell: ssh连上手机、模拟器
 adb install: 安装app
@@ -50,28 +50,27 @@ adb pull: 从手机、模拟器 的文件系统中下载一个文件
 #### 动态测试：
 1. Appium: 一款UI测试工具
 
-https://appium.io/docs/en/2.1/
+   https://appium.io/docs/en/2.1/
 
-可以参考这个教程安装和测试：https://zhuanlan.zhihu.com/p/144737398
+   可以参考这个教程安装和测试：https://zhuanlan.zhihu.com/p/144737398
 
 3. uiautomator2:  一款UI测试工具
 
-https://github.com/openatx/uiautomator2
+   https://github.com/openatx/uiautomator2
 
-同Appium, 但比Appium更简单易用，官方（Git仓库）中的教程简单易读
-可以参考这个教程使用：https://blog.csdn.net/d1240673769/article/details/113809889
+   同Appium, 但比Appium更简单易用，官方（Git仓库）中的教程简单易读
+   可以参考这个教程使用：https://blog.csdn.net/d1240673769/article/details/113809889
 
 
 4. Frida： 好用的插桩软件
    
-Frida的安装比较复杂，总的来说，电脑上需要先安装一个frida-tools， 然后再通过adb push传一个frida server到手机上，然后通过adb shell在手机中运行这个server。 server可以接收来自电脑上frida-tools的命令，做后续的操作
+   Frida的安装比较复杂，总的来说，电脑上需要先安装一个frida-tools， 然后再通过adb push传一个frida server到手机上，然后通过adb shell在手机中运行这个server。 server可以接收来自电脑上frida-tools的命令，做后续的操作
 
-官网的教程省略了很多重要信息
-可以看
-https://medium.com/@briskinfosec/getting-started-with-frida-de44d932ae7
-或者这个视频：https://www.youtube.com/watch?v=Ew3VfY07Pxk
+   官网的教程省略了很多重要信息
+   可以看： https://medium.com/@briskinfosec/getting-started-with-frida-de44d932ae7
+   或者这个视频：https://www.youtube.com/watch?v=Ew3VfY07Pxk
 
-具体的用法：写一个Python脚本
+   具体的用法：写一个Python脚本
 ```
 console.log("Script loaded successfully ");
 
@@ -124,38 +123,38 @@ setTimeout(function(){
  }
 });
 ```
-Frida还可以修改被插桩函数的返回值等。
+   Frida还可以修改被插桩函数的返回值等。
 
 
 4. Xpose：强大的插桩软件
 
-在真机上安装比较复杂，建议在模拟器（夜神，雷电模拟器等）上安装使用
-https://support.yeshen.com/zh-CN/qt/xp
+   在真机上安装比较复杂，建议在模拟器（夜神，雷电模拟器等）上安装使用
+   https://support.yeshen.com/zh-CN/qt/xp
 
-具体的用法和Frida差不多
+   具体的用法和Frida差不多
 
 
 5. tcpdump: 流量抓包
 
-用adb push向手机上上传一个tcpdump的binary，然后用adb shell 在手机上运行
-教程：https://blog.csdn.net/iamcxl369/article/details/77720857
+   用adb push向手机上上传一个tcpdump的binary，然后用adb shell 在手机上运行
+   教程：https://blog.csdn.net/iamcxl369/article/details/77720857
 
 7. Charles，mitmproxy：中间人抓包
 
-使用Charles，mitmproxy这一类的工具作为Android手机的proxy，抓包
+   使用Charles，mitmproxy这一类的工具作为Android手机的proxy，抓包
 
-对于HTTPs, 在收集和电脑上同时下载证书：
-https://juejin.cn/post/6874903020677791758
+   对于HTTPs, 在收集和电脑上同时下载证书：
+   https://juejin.cn/post/6874903020677791758
 
-不过中间人抓包目前对于大部分的商业APP都不可行，原因是大部分APP不会trust用户自己安装的证书
+   不过中间人抓包目前对于大部分的商业APP都不可行，原因是大部分APP不会trust用户自己安装的证书
 
 
 7. justTrustMe忽略证书效验
 
-该工具似乎是通过hook一些通用的证书效验的API来绕过6中所提到的“大部分APP不会trust用户自己安装的证书”
+   该工具似乎是通过hook一些通用的证书效验的API来绕过6中所提到的“大部分APP不会trust用户自己安装的证书”
 
-这套抓包的使用方法较为复杂，可以参考下面这个教程
-https://crifan.github.io/app_capture_package_tool_charles/website/how_capture_app/complex_https/https_ssl_pinning/android/xposed_justtrustme.html
+   这套抓包的使用方法较为复杂，可以参考下面这个教程
+   https://crifan.github.io/app_capture_package_tool_charles/website/how_capture_app/complex_https/https_ssl_pinning/android/xposed_justtrustme.html
 
 
 
@@ -164,20 +163,20 @@ https://crifan.github.io/app_capture_package_tool_charles/website/how_capture_ap
 #### 静态：
 1. iblessing: 较好用的静态分析工具
 
-https://github.com/Soulghost/iblessing
-可以看到iOS binary中所有的class以及call-graph
+   https://github.com/Soulghost/iblessing
+   可以看到iOS binary中所有的class以及call-graph
 
 3. IDA-pro
 
-iOS app binary主要是汇编语言，通过IDA-pro的反编译（F5 汇编--》源码） 可以大致了解源码的逻辑
+   iOS app binary主要是汇编语言，通过IDA-pro的反编译（F5 汇编--》源码） 可以大致了解源码的逻辑
 
 #### 动态：
 1. Appium: UI测试工具
 
-用法同Android Appium，但是安装比较复杂，需要先在手机上装一个WebDriverAgent, 然后在电脑上使用Appium和手机上的WebDriverAgent通讯
-安装可以参考：
-https://blog.csdn.net/liuage_/article/details/124508920
-https://juejin.cn/post/7011778694511329310
+   用法同Android Appium，但是安装比较复杂，需要先在手机上装一个WebDriverAgent, 然后在电脑上使用Appium和手机上的WebDriverAgent通讯
+   安装可以参考：
+   https://blog.csdn.net/liuage_/article/details/124508920
+   https://juejin.cn/post/7011778694511329310
 
 ***************
 
