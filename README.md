@@ -49,11 +49,13 @@ adb pull: 从手机、模拟器 的文件系统中下载一个文件
 
 #### 动态测试：
 1. Appium: 一款UI测试工具
+
 https://appium.io/docs/en/2.1/
 
 可以参考这个教程安装和测试：https://zhuanlan.zhihu.com/p/144737398
 
 3. uiautomator2:  一款UI测试工具
+
 https://github.com/openatx/uiautomator2
 
 同Appium, 但比Appium更简单易用，官方（Git仓库）中的教程简单易读
@@ -126,6 +128,7 @@ Frida还可以修改被插桩函数的返回值等。
 
 
 4. Xpose：强大的插桩软件
+
 在真机上安装比较复杂，建议在模拟器（夜神，雷电模拟器等）上安装使用
 https://support.yeshen.com/zh-CN/qt/xp
 
@@ -133,10 +136,12 @@ https://support.yeshen.com/zh-CN/qt/xp
 
 
 5. tcpdump: 流量抓包
+
 用adb push向手机上上传一个tcpdump的binary，然后用adb shell 在手机上运行
 教程：https://blog.csdn.net/iamcxl369/article/details/77720857
 
-6. Charles，mitmproxy：中间人抓包
+7. Charles，mitmproxy：中间人抓包
+
 使用Charles，mitmproxy这一类的工具作为Android手机的proxy，抓包
 
 对于HTTPs, 在收集和电脑上同时下载证书：
@@ -146,6 +151,7 @@ https://juejin.cn/post/6874903020677791758
 
 
 7. justTrustMe忽略证书效验
+
 该工具似乎是通过hook一些通用的证书效验的API来绕过6中所提到的“大部分APP不会trust用户自己安装的证书”
 
 这套抓包的使用方法较为复杂，可以参考下面这个教程
@@ -157,14 +163,17 @@ https://crifan.github.io/app_capture_package_tool_charles/website/how_capture_ap
 
 #### 静态：
 1. iblessing: 较好用的静态分析工具
+
 https://github.com/Soulghost/iblessing
 可以看到iOS binary中所有的class以及call-graph
 
-2. IDA-pro
+3. IDA-pro
+
 iOS app binary主要是汇编语言，通过IDA-pro的反编译（F5 汇编--》源码） 可以大致了解源码的逻辑
 
 #### 动态：
 1. Appium: UI测试工具
+
 用法同Android Appium，但是安装比较复杂，需要先在手机上装一个WebDriverAgent, 然后在电脑上使用Appium和手机上的WebDriverAgent通讯
 安装可以参考：
 https://blog.csdn.net/liuage_/article/details/124508920
